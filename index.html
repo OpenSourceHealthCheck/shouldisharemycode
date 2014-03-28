@@ -1,8 +1,109 @@
-<HTML>
-  <HEAD>
-    <TITLE>Should I Share My Code?</TITLE>
-  </HEAD>
-  <BODY>
-    <P>Should I Share My Code?</P>
-  </BODY>
-</HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+    <head>
+        <title>Should I Share My Code?</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta name="Description" content="Check if your code is good enough to share publicly.">
+        <meta name="robots" content="ALL">
+
+        <link href="style.css" rel="stylesheet" type="test/css">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+        <script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
+        <script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
+        <script>
+            // Get a user file.
+            var input = $( "input:file" );
+            // Upload and analyse code.
+            function analyse() {
+                replace('#loading', '#analysing', 1000);
+                replace('#analysing', '#done', 2000);
+            };
+            function replace(divA, divB, t) {
+                setTimeout(
+                    function() {
+                         $(divA).hide()
+                         $(divB).show()
+                    },
+                    t
+                );
+            };
+            function reset() {
+                $('#loading').hide()
+                $('#analysing').hide()
+                $('#done').hide()
+            };
+            $(document).ready(function(){
+                jQuery.validator.setDefaults({
+                    debug: true,
+                    success: "valid"
+                });
+                // Ensure user enters *something*
+                var srcform = $( "#src_form");
+                srcform.validate({
+                    rules: {
+                        src_upload: {
+                            require_from_group: [1, ".src"]
+                        },
+                        src_url: {
+                        require_from_group: [1, ".src"]
+                    },
+                }
+                });
+                // Submission. 
+                $("#show").click(function(){
+                    if (srcform.valid()) {
+                        reset();
+                        $("#loading").show();
+                        analyse();
+                    }
+                });
+            });
+        </script>
+
+    </head>
+
+    <body>
+
+    <h1>Should I Share My Code?</h1>
+
+    <p>Unsure if your code is good enough or useful enough to share?  Simply upload your code (any language in a zip file, tarball or a single file using any compression) or point to a online repository and we'll analyse your code and let you know.
+    </p>
+
+    <div class="form">
+        <form id="src_form">
+
+            <label for="src_upload">Source upload: </label>
+            <input class="src" type="file" name="src_upload">
+            <br>
+
+            <p>or</p>
+
+            <label for="src_url">Repository URL: </label>
+            <input class="src" type="url" name="src_url">
+            <br>
+
+        </form>
+    </div>
+    <button id="show">Submit</button>
+
+    <div id="loading">
+        <!-- Image from www.opengraphicdesign.com (CC-BY) -->
+        <img src="loaderB64.gif" alt="rotating arrows" />
+        <p>Loading...</p>
+    </div>
+    <div id="analysing">
+        <!-- Image from www.opengraphicdesign.com (CC-BY) -->
+        <img src="loaderB64.gif" alt="rotating arrows" />
+        <p>Analysing...</p>
+    </div>
+    <div id="done">
+        <p>YES</p>
+    </div>
+
+    </body>
+
+</html>
