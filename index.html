@@ -4,9 +4,18 @@
 
     <head>
         <title>Should I Share My Code?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <meta name="Description" content="Check if your code is good enough to share publicly.">
         <meta name="robots" content="ALL">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
         <link href="style.css" rel="stylesheet" type="test/css">
 
@@ -22,9 +31,11 @@
                 replace('#loading', '#analysing', 1000);
                 replace('#analysing', '#done', 2000);
             };
+            // Hide divA and show divB.
             function replace(divA, divB, t) {
                 setTimeout(
                     function() {
+                        // Don't use replaceWith so resetting the page is easy!
                          $(divA).hide()
                          $(divB).show()
                     },
@@ -32,6 +43,7 @@
                 );
             };
             function reset() {
+                // Does it look like I know no javascript?  Really?
                 $('#loading').hide()
                 $('#analysing').hide()
                 $('#done').hide()
@@ -55,6 +67,7 @@
                 });
                 // Submission. 
                 $("#show").click(function(){
+                    $('.dummy').hide();
                     if (srcform.valid()) {
                         reset();
                         $("#loading").show();
@@ -67,41 +80,68 @@
     </head>
 
     <body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
 
-    <h1>Should I Share My Code?</h1>
+    <div class="page-header">
+        <h1 class="text-center">Should I Share My Code?</h1>
+    </div>
 
     <p>Unsure if your code is good enough or useful enough to share?  Simply upload your code (any language in a zip file, tarball or a single file using any compression) or point to a online repository and we'll analyse your code and let you know.
     </p>
 
     <div class="form">
-        <form id="src_form">
+        <form id="src_form" class="vspace">
 
-            <label for="src_upload">Source upload: </label>
-            <input class="src" type="file" name="src_upload">
-            <br>
+            <!-- For styling see http://www.abeautifulsite.net/blog/2013/08/whipping-file-inputs-into-shape-with-bootstrap-3/ -->
+            <label class="sr-only" for="src_upload">Source upload: </label>
+            <input class="src form-control" type="file" name="src_upload">
+            <label class="error valid dummy" for="src_upload"></label>
+            
 
-            <p>or</p>
+            <p class="vspace text-center"><strong>or</strong></p>
 
-            <label for="src_url">Repository URL: </label>
-            <input class="src" type="url" name="src_url">
+            <label class="sr-only" for="src_url">Repository URL: </label>
+            <input class="src form-control" type="url" name="src_url" placeholder="Repository URL">
+            <label class="error valid dummy" for="src_url"></label>
             <br>
 
         </form>
     </div>
-    <button id="show">Submit</button>
+    <div class="text-center">
+        <button id="show" class="btn">Submit</button>
+    </div>
 
-    <div id="loading">
+    <div id="loading" class="share text-center">
         <!-- Image from www.opengraphicdesign.com (CC-BY) -->
         <img src="loaderB64.gif" alt="rotating arrows" />
         <p>Loading...</p>
     </div>
-    <div id="analysing">
+    <div id="analysing" class="share text-center">
         <!-- Image from www.opengraphicdesign.com (CC-BY) -->
         <img src="loaderB64.gif" alt="rotating arrows" />
         <p>Analysing...</p>
     </div>
-    <div id="done">
+    <div id="done" class="share text-center">
         <p>YES</p>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+
+    <div id="footer">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 test ">
+            <hr>
+            <p class="text-muted">By <a href="https://github.com/OpenSourceHealthCheck">OpenSourceHealthCheck</a>.</p>
+            <p class="text-muted"><a href="http://www.opengraphicdesign.com/web/ajax-loading-graphics/">Loading image by OpenGraphicDesign</a>.  Used under <a href="http://creativecommons.org/licenses/by/3.0/deed.en">Creative Commons - Attribution</a>.</p>
+            </div>
+        </div>
+        </div>
     </div>
 
     </body>
