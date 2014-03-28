@@ -31,7 +31,6 @@
             function analyse() {
                 replace('#loading', '#analysing', 1000);
                 var randomnumber=Math.floor((Math.random()*5)+1);
-                console.log('rand', randomnumber);
                 var url=$("input[name='src_url']").val();
                 if (url.match('http://shouldisharemyco.de')) {
                     replace('#analysing', '#OSHC', 2000);
