@@ -10,6 +10,11 @@
         <meta name="Description" content="Check if your code is good enough to share publicly.">
         <meta name="robots" content="ALL">
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+        <script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
+        <script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <!-- Optional theme -->
@@ -19,17 +24,24 @@
 
         <link href="style.css" rel="stylesheet" type="test/css">
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
-        <script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
-        <script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
         <script>
             // Get a user file.
             var input = $( "input:file" );
             // Upload and analyse code.
             function analyse() {
                 replace('#loading', '#analysing', 1000);
-                replace('#analysing', '#done', 2000);
+                var randomnumber=Math.floor(Math.random()*6);
+                var url=$("input[name='src_url']").val();
+                if (url.match('http://shouldisharemyco.de')) {
+                    replace('#analysing', '#OSHC', 2000);
+                } else if (url.match('http://www.shouldisharemyco.de')) {
+                    replace('#analysing', '#OSHC', 2000);
+                } else if (randomnumber==5) {
+                    replace('#analysing', '#maybe', 2000);
+                    replace('#maybe', '#done', 3000);
+                } else {
+                    replace('#analysing', '#done', 2000);
+                }
             };
             // Hide divA and show divB.
             function replace(divA, divB, t) {
@@ -44,11 +56,14 @@
             };
             function reset() {
                 // Does it look like I know no javascript?  Really?
-                $('#loading').hide()
-                $('#analysing').hide()
-                $('#done').hide()
+                $('#loading').hide();
+                $('#analysing').hide();
+                $('#done').hide();
+                $('#maybe').hide();
+                $('#OSHC').hide();
             };
             $(document).ready(function(){
+                reset();
                 jQuery.validator.setDefaults({
                     debug: true,
                     success: "valid"
@@ -125,6 +140,12 @@
     </div>
     <div id="done" class="share text-center">
         <p>YES</p>
+    </div>
+    <div id="maybe" class="share text-center">
+        <p>Maybe...</p>
+    </div>
+    <div id="OSHC" class="share text-center">
+        <p>HELL YES</p>
     </div>
 
     </div>

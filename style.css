@@ -27,9 +27,11 @@ body {
     height: 110px;
     width: 100%;
 }
-#done {
+#done,#OSHC {
     font-size: 250%;
-    font-color: red;
+}
+#OSHC {
+    color: red;
 }
 label.dummy {
     min-height: 1em;
