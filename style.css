@@ -18,6 +18,9 @@ body {
 .vspace {
     padding: 10px 0;
 }
+.fake_label {
+    padding: 7px 0;
+}
 .share {
     padding: 20px;
 }
