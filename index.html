@@ -36,6 +36,8 @@
                     replace('#analysing', '#OSHC', 2000);
                 } else if (url.match('http://www.shouldisharemyco.de')) {
                     replace('#analysing', '#OSHC', 2000);
+                } else if (url.indexOf("hackerorslacker") != -1) {
+                    replace('#analysing', '#NO', 2000);
                 } else if (randomnumber==5) {
                     replace('#analysing', '#maybe', 2000);
                     replace('#maybe', '#done', 3000);
@@ -61,6 +63,7 @@
                 $('#done').hide();
                 $('#maybe').hide();
                 $('#OSHC').hide();
+                $('#NO').hide();
             };
             $(document).ready(function(){
                 reset();
@@ -156,6 +159,9 @@
     </div>
     <div id="OSHC" class="share text-center">
         <p>HELL YES</p>
+    </div>
+    <div id="NO" class="share text-center">
+        <p>For the good of humanity, best not.</p>
     </div>
 
     </div>

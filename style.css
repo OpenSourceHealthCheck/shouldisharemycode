@@ -27,7 +27,7 @@ body {
     height: 110px;
     width: 100%;
 }
-#done,#OSHC {
+#done,#OSHC,#NO {
     font-size: 250%;
 }
 #OSHC {
