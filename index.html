@@ -1,30 +1,30 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
  
 <html>
 
     <head>
         <title>Should I Share My Code?</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="Description" content="Check if your code is good enough to share publicly.">
         <meta name="robots" content="ALL">
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
-        <script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
-        <script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+        <script type="text/javascript" src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
+        <script type="text/javascript" src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <!-- Optional theme -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
         <!-- Latest compiled and minified JavaScript -->
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
         <link href="style.css" rel="stylesheet" type="test/css">
 
-        <script>
+        <script type="text/javascript">
             // Get a user file.
             var input = $( "input:file" );
             // Upload and analyse code.
@@ -96,7 +96,7 @@
             });
         </script>
 
-        <script>
+        <script type="text/javascript">
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -121,22 +121,25 @@
     </p>
 
     <div class="form">
-        <form id="src_form" class="vspace">
+        <form id="src_form" class="vspace" action="">
 
             <!-- For styling see http://www.abeautifulsite.net/blog/2013/08/whipping-file-inputs-into-shape-with-bootstrap-3/ -->
-            <label class="sr-only" for="src_upload">Source upload: </label>
-            <input class="src form-control" type="file" name="src_upload">
-            <label class="error valid dummy" for="src_upload"></label>
+            <fieldset>
+                <label class="sr-only" for="src_upload">Source upload: </label>
+                <input class="src form-control" type="file" name="src_upload" id="src_upload"> 
+                <label class="error valid dummy" for="src_upload"></label>
+            </fieldset>
             
 
             <p class="vspace text-center"><strong>or</strong></p>
             <!-- The label element for errors brings an additional 14px of vspace, so balance that out. -->
-            <div class="fake_label></div>
+            <div class="fake_label"></div>
 
-            <label class="sr-only" for="src_url">Repository URL: </label>
-            <input class="src form-control" type="url" name="src_url" placeholder="Repository URL">
-            <label class="error valid dummy" for="src_url"></label>
-            <br>
+            <fieldset>
+                <label class="sr-only" for="src_url">Repository URL: </label>
+                <input class="src form-control" type="url" name="src_url" id="src_url" placeholder="Repository URL">
+                <label class="error valid dummy" for="src_url"></label>
+            </fieldset>
 
         </form>
     </div>
@@ -146,12 +149,12 @@
 
     <div id="loading" class="share text-center">
         <!-- Image from www.opengraphicdesign.com (CC-BY) -->
-        <img src="loaderB64.gif" alt="rotating arrows" />
+        <img src="loaderB64.gif" alt="rotating arrows">
         <p>Loading...</p>
     </div>
     <div id="analysing" class="share text-center">
         <!-- Image from www.opengraphicdesign.com (CC-BY) -->
-        <img src="loaderB64.gif" alt="rotating arrows" />
+        <img src="loaderB64.gif" alt="rotating arrows">
         <p>Analysing...</p>
     </div>
     <div id="done" class="share text-center">
