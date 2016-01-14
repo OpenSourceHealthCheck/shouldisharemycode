@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- 
+
 <html>
 
     <head>
@@ -12,9 +12,11 @@
 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
-        <script type="text/javascript" src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
-        <script type="text/javascript" src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
-
+        <!-- <script type="text/javascript" src="http://jquery.bassistance.de/validate/jquery.validate.js"></script> -->
+        <!-- <script type="text/javascript" src="http://jquery.bassistance.de/validate/additional-methods.js"></script> -->
+        <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+        <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+        
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <!-- Optional theme -->
@@ -84,7 +86,7 @@
                     },
                 }
                 });
-                // Submission. 
+                // Submission.
                 $("#show").click(function(){
                     $('.dummy').hide();
                     if (srcform.valid()) {
@@ -126,10 +128,10 @@
             <!-- For styling see http://www.abeautifulsite.net/blog/2013/08/whipping-file-inputs-into-shape-with-bootstrap-3/ -->
             <fieldset>
                 <label class="sr-only" for="src_upload">Source upload: </label>
-                <input class="src form-control" type="file" name="src_upload" id="src_upload"> 
+                <input class="src form-control" type="file" name="src_upload" id="src_upload">
                 <label class="error valid dummy" for="src_upload"></label>
             </fieldset>
-            
+
 
             <p class="vspace text-center"><strong>or</strong></p>
             <!-- The label element for errors brings an additional 14px of vspace, so balance that out. -->
